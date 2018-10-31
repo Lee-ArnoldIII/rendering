@@ -40,3 +40,27 @@ function movies() {
     content.innerHTML = renderMovies(moviesAbstraction);
 
 }
+
+
+const allTheMovies = []
+
+function buildMovie (movie) {
+    return `
+    <div>
+    <h2>${movie.title}</h2>
+    <span class=year>${movie.year}</span>
+    <img src="${movie.poster}" alt="Movie poster" />
+    
+    `
+}
+
+
+function buildAllMovies (movies) {
+    return movies.map(buildMovie).join('')
+}
+
+const contenEl = document.getElementById('content');
+
+function renderMovies () {
+    contentEl.innerHTML = buildAllMovies(movies);
+}
